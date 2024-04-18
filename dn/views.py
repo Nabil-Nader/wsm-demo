@@ -523,6 +523,9 @@ class DnViewPrintViewSet(viewsets.ModelViewSet):
 
 class DnNewOrderViewSet(viewsets.ModelViewSet):
     """
+    Manages new orders. This class deals with the creation of new orders, ensuring that all necessary validations are performed and that the interaction with warehouse data is optimized for efficiency and accuracy.
+    """
+    """
         retrieve:
             Response a data list（get）
     """
@@ -594,6 +597,9 @@ class DnNewOrderViewSet(viewsets.ModelViewSet):
                 raise APIException({"detail": "This DN Status Is Not Pre Order"})
 
 class DnOrderReleaseViewSet(viewsets.ModelViewSet):
+    """
+    Handles the release of orders. This class is responsible for processing orders that are ready to be released from the warehouse, including updating stock levels, handling back orders, and ensuring that all warehouse data interactions are correctly implemented and optimized for performance.
+    """
     """
         retrieve:
             Response a data list（get）
