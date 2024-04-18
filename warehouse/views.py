@@ -111,8 +111,8 @@ class APIViewSet(viewsets.ModelViewSet):
 
     def destroy(self, request, pk):
         qs = self.get_object()
-        if qs.openid != self.request.auth.openid:
-            raise APIException({"detail": "Cannot delete data which not yours"})
+        if qs.openid != self.request.auth.openid or not self.request.user.has_perm('warehouse.delete_warehouse'):
+            raise APIException({'detail': 'You are not authorized to delete this warehouse.'})
         else:
             qs.is_delete = True
             qs.save()
