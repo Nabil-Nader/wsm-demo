@@ -85,7 +85,7 @@ class StockBinViewSet(viewsets.ModelViewSet):
 
     def create(self, request, pk):
         qs = self.get_object()
-        if qs.openid != self.request.auth.openid:
+        if stock_bin_query_set.openid != self.request.auth.openid:
             raise APIException({"detail": "Cannot update data which not yours"})
         else:
             data = self.request.data
@@ -258,7 +258,7 @@ class StockBinViewSet(viewsets.ModelViewSet):
                 return Response(data, status=200, headers=headers)
 
     def update(self, request, *args, **kwargs):
-        qs = StockBinModel.objects.filter(openid=self.request.auth.openid)
+        stock_bin_query_set = StockBinModel.objects.filter(openid=self.request.auth.openid)
         data = self.request.data
         for i in range(len(data)):
             if 'bin_name' not in data[i] and 'move_to_bin' not in data[i]:
