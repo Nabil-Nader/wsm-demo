@@ -357,16 +357,17 @@ export default {
     }
   },
   outbound: {
-    dn: 'DN',
-    freshorder: 'Pre Order',
-    neworder: 'New Order',
-    backorder: 'Back Order',
-    pickstock: 'Pre Pick',
-    pickedstock: 'Picked',
-    pickinglist: 'Picking List',
-    shippedstock: 'Shipping List',
-    received: 'Received',
-    pod: 'Proof Of Delivery',
+    // The outbound functionality encompasses the entire process of handling delivery orders (DNs), from creation to proof of delivery.
+    dn: 'DN', // Represents delivery notes, which are documents accompanying a shipment of goods.
+    freshorder: 'Pre Order', // Initial stage of a new order before it's processed.
+    neworder: 'New Order', // Marks an order as newly created and ready for processing.
+    backorder: 'Back Order', // Orders that cannot be fulfilled due to lack of stock and are pending.
+    pickstock: 'Pre Pick', // Stage where items for an order are selected and prepared for picking.
+    pickedstock: 'Picked', // Indicates that items have been picked and are ready for shipping.
+    pickinglist: 'Picking List', // A list generated to facilitate the picking of items for an order.
+    shippedstock: 'Shipping List', // List of orders that have been shipped.
+    received: 'Received', // Indicates that the shipped order has been received by the customer.
+    pod: 'Proof Of Delivery', // Documentation that proves the delivery of goods to the recipient.
     view_dn: {
       dn_code: 'DN Code',
       dn_status: 'DN Status',
@@ -523,9 +524,10 @@ export default {
     }
   },
   handcount: {
-    handcount: 'Single Count',
-    handcountrecorder: 'Single Count Recorder',
-    update_time: 'Count Time'
+    // The handcount functionality is designed for manual stocktaking and inventory accuracy verification.
+    handcount: 'Single Count', // Initiates a manual count process for a specific item or bin.
+    handcountrecorder: 'Single Count Recorder', // Records the results of the single count for audit and verification purposes.
+    update_time: 'Count Time', // Timestamp of when the count was performed.
   },
   notice: {
     valerror: 'Please Enter The Correct Value',
